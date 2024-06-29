@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}Task List - {{ page_title}}{% endblock %}
+
+
+
+{% block content %}
+<section>
+    
+<div class="task_list-page">
+    <ul class="text-sm text-black font-bold underline">
+        {% for task in tasks %}
+        <li>
+            <div>
+            <div>
+                <a href="{% url 'task_detail' pk=task.pk %}">{{ task.title }}</a>
+                <p>Saved by {{ task.author }} on {{ task.saved}}</p>
+                <p>Deadline: {{ task.deadline }} </p>
+                <a href="{% url 'task_update' pk=task.pk %}">edit</a>
+            </div>
+            <div>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'task_create' %}" class="text-black">Add New</a>
+    
+</section>
+{% endblock %}

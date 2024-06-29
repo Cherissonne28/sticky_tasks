@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Task App - {{ task.title}}{% endblock %}
+
+{% block content %}
+    <h2> {{ task.title }}</h2>
+    <section>
+    <p>Content: {{ task.content }}</p>
+    <p>Deadline: {{ task.deadline }}</p>
+    <p>Saved at {{ task.saved }} by {{ task.author}}</p>
+    </section>
+    <a href="{% url 'task_list' %}">Back to Task List</a>
+{% endblock %}
